@@ -1,0 +1,63 @@
+{
+    "name": "vamtiger-image-size",
+    "version": "0.0.1",
+    "description": "VAMTIGER Image Size",
+    "main": "build/vamtiger-image-size",
+    "bin": {
+        "vamtiger-image-size": "build/vamtiger-image-size.js"
+    },
+    "scripts": {
+        "test": "npm run build && npm run mocha",
+        "mocha": "mocha build/test --recursive",
+        "build": "tsc",
+        "commit": "npm run bundle && vamtiger-node-typescript-commit --push --publish --buildScript bundle",
+        "clean-bundle": "vamtiger-remove -d build -p \"(vamtiger-image-size|types)\\\\.(js(.map)?|d.ts)\"",
+        "clean": "rm -rf build/*",
+        "bundle-source": "vamtiger-bundle-typescript --relativePath --entryFilePath source/vamtiger-image-size.ts --bundleFilePath build/vamtiger-image-size.js --format cjs --sourcemap true --copySourceMap --minify --bin",
+        "bundle": "npm test && npm run clean && npm run build && npm run bundle-source && npm run clean-bundle",
+        "watch": "npm run bundle -- --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vamtiger-project/vamtiger-image-size.git"
+    },
+    "keywords": [
+        "vamtiger",
+        "image-size"
+    ],
+    "author": "Vamtiger Immortalles",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vamtiger-project/vamtiger-image-size/issues"
+    },
+    "homepage": "https://github.com/vamtiger-project/vamtiger-image-size#readme",
+    "types": "build/vamtiger-image-size.d.ts",
+    "devDependencies": {
+        "@types/chai": "^4.2.0",
+        "@types/lodash": "^4.14.137",
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^12.7.2",
+        "chai": "^4.2.0",
+        "mocha": "^6.2.0",
+        "typescript": "^3.5.3",
+        "vamtiger-bash": "0.0.25",
+        "vamtiger-bundle-css-next": "^0.4.1",
+        "vamtiger-bundle-html": "^0.2.8",
+        "vamtiger-bundle-text": "0.0.8",
+        "vamtiger-bundle-typescript": "0.0.36",
+        "vamtiger-get-directory-content": "0.0.35",
+        "vamtiger-node-typescript-commit": "^0.9.1",
+        "vamtiger-remove": "0.0.5"
+    },
+    "dependencies": {
+        "@types/image-size": "^0.7.0",
+        "image-size": "^0.7.4",
+        "lodash": "^4.17.15",
+        "request": "^2.88.0",
+        "vamtiger-argv": "^1.2.6",
+        "vamtiger-create-directory": "0.0.5",
+        "vamtiger-create-file": "0.0.10",
+        "vamtiger-is-remote-url": "0.0.10",
+        "vamtiger-require": "0.0.9"
+    }
+}

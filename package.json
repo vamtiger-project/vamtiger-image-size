@@ -8,7 +8,7 @@
     },
     "scripts": {
         "test": "npm run build && npm run mocha",
-        "mocha": "mocha build/test --recursive",
+        "mocha": "mocha build/test --recursive --timeout 60000",
         "build": "tsc",
         "commit": "npm run bundle && vamtiger-node-typescript-commit --push --publish --buildScript bundle",
         "clean-bundle": "vamtiger-remove -d build -p \"(vamtiger-image-size|types)\\\\.(js(.map)?|d.ts)\"",

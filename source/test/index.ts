@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
+import { describe, it, before } from 'mocha';
 import getImageSizes from '../vamtiger-image-size';
 
 const imagePaths = [

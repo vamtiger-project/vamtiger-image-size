@@ -57,7 +57,7 @@ export default async function getImageSizes({imagePaths}: IGetImageSizeMain) {
     })));
     const jsonLdJs = jsonLd && exportFormat === ExportFormat.jsonLdJs && `module.exports = ${jsonLd};`;
     const jsonLdTs = jsonLd && exportFormat === ExportFormat.jsonLdTs && `export default ${jsonLd};`;
-    const exportText = ts || js || json || jsonLd || jsonLdJs || jsonLdTs;
+    const exportText = ts || js || json || jsonLdTs || jsonLdJs || jsonLd;
 
     output && exportText && await createFile(output, exportText);
 
